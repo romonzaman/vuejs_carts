@@ -94,6 +94,9 @@ const go_back = () => router.go(1)
                     <p>
                         {{ product['description'] }}
                     </p>
+                    <div class="">
+                        <button class="bg-blue-700 text-white px-2 py-1 rounded-lg mt-5">Add To Cart</button>
+                    </div>
                 </div>
                 <div class="w-1/6 block">
                 </div>

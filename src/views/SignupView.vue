@@ -7,7 +7,7 @@ import userVuelidate from '@vuelidate/core'
 import { required, email, sameAs } from '@vuelidate/validators'
 import BaseInput from '../components/BaseInput.vue'
 
-document.title = "Signup | Dialer"
+document.title = "Signup | Rihal Shop"
 
 const router = useRouter()
 
@@ -79,7 +79,7 @@ const formSubmit = async () => {
 
       <div class="flex justify-center items-center">
         <img class="w-10 h-auto m-5" src="/img/logo_lwmk.png" alt="Logo">
-        <span>MyDialer</span>
+        <span>Rihal Shop</span>
       </div>
       <div
         class="relative mt-7 bg-gray-50 border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">

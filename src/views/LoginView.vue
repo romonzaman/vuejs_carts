@@ -1,6 +1,6 @@
 <script setup>
 
-document.title = "Login | IMS"
+document.title = "Login | Rihal Shop"
 
 import { reactive } from 'vue';
 
