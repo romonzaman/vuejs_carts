@@ -1,12 +1,26 @@
 import { createWebHistory, createRouter } from "vue-router"
 import ProductList from "../components/ProductList.vue"
 import ProductDetails from "../components/ProductDetails.vue"
+const Login = () => import("../views/LoginView.vue")
+const LogoutView = () => import("../views/LogoutView.vue")
+const Signup = () => import("../views/SignupView.vue")
+const ForgotPassword = () => import("../views/ForgotPassword.vue")
 
-const routes = [
+
+const routes = [    
     {
-        path: "/",
+      path: '/',
+      name: 'home',
+      component: Login
+    },
+    { path: "/login", name: "Login", component: Login },
+    { path: "/logout", name: "Logout", component: LogoutView },
+    { path: "/signup", name: "Signup", component: Signup },
+    { path: "/forgotpassword", name: "ForgotPassword", component: ForgotPassword},
+    {
+        path: "/products",
         component: ProductList,
-        name: "home"
+        name: "products"
     },
     {
         path: "/product/:id",

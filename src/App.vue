@@ -1,9 +1,22 @@
 <script setup>
+
+import UserLayout from './components/UserLayout.vue'
+
+document.title = "Dashboard"
+
+import { useAuthStore } from './stores/AuthStore'
+const authStore = useAuthStore()
+
+if (authStore.accessToken == null) {
+  authStore.router.push("/login")
+}
+
+
 </script>
 
 
 <template>
-  <div class="flex justify-between items-center bg-blue-700 text-white p-5">
+  <!-- <div class="flex justify-between items-center bg-blue-700 text-white p-5">
 
     <router-link to="/">
       <h1 class="">
@@ -14,7 +27,9 @@
   </div>
   <div class="m-10 flex flex-col justify-center items-center">
     <router-view />
-  </div>
+  </div> -->
+
+  <router-view />
 </template>
 
 <style scoped></style>
