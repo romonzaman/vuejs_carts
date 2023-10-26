@@ -5,6 +5,7 @@ const Login = () => import("../views/LoginView.vue")
 const LogoutView = () => import("../views/LogoutView.vue")
 const Signup = () => import("../views/SignupView.vue")
 const ForgotPassword = () => import("../views/ForgotPassword.vue")
+const CartView = () => import("../views/CartView.vue")
 
 
 const routes = [    
@@ -26,6 +27,11 @@ const routes = [
         path: "/product/:id",
         component: ProductDetails,
         name: "product-details"
+    },
+    {
+        path: "/cart",
+        component: CartView,
+        name: "Cart"
     },
 
 ]

@@ -15,6 +15,9 @@ if (authStore.accessToken == null) {
     authStore.router.push("/login")
 }
 
+import { useCartStore } from '../stores/CartStore';
+const cartStore = useCartStore()
+
 const route = useRoute()
 const router = useRouter()
 
@@ -95,7 +98,8 @@ const go_back = () => router.go(1)
                         {{ product['description'] }}
                     </p>
                     <div class="">
-                        <button class="bg-blue-700 text-white px-2 py-1 rounded-lg mt-5">Add To Cart</button>
+                        <button @click="cartStore.add_to_cart(product)"
+                            class="bg-blue-700 text-white px-2 py-1 rounded-lg mt-5">Add To Cart</button>
                     </div>
                 </div>
                 <div class="w-1/6 block">

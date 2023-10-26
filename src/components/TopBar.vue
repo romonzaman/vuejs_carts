@@ -3,6 +3,8 @@ import { ref } from 'vue';
 
 import { useProfileStore } from '../stores/ProfileStore'
 const profileStore = useProfileStore()
+import { useCartStore } from '../stores/CartStore'
+const cartStore = useCartStore()
 
 const show_profile = ref(false)
 
@@ -13,6 +15,13 @@ const toggle_profile = () => {
     } else {
         show_profile.value = true
     }
+}
+
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+const goto_cart = () => {
+    router.push("/cart")
 }
 </script>
 
@@ -27,9 +36,10 @@ const toggle_profile = () => {
             </div>
         </div>
         <div class="flex space-x-10 justify-between items-center">
-            <div class="relative py-2">
+            <div class="relative py-2 cursor-pointer" @click="goto_cart()">
                 <div class="t-0 absolute left-3">
-                    <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">3</p>
+                    <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{{
+                        cartStore.totalItem }}</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="file: mt-4 h-6 w-6">

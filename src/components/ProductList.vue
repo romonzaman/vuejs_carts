@@ -14,6 +14,8 @@ if (authStore.accessToken == null) {
     authStore.router.push("/login")
 }
 
+import { useCartStore } from '../stores/CartStore';
+const cartStore = useCartStore()
 
 //https://fakestoreapi.com/products/
 
@@ -93,6 +95,9 @@ const show_details = (id) => {
                             <!-- <router-link :to="'/product/' + product['id']"
                             class="text-white border bg-blue-700 px-2 py-1 rounded-md">More
                             Detail</router-link> -->
+                            <button @click="cartStore.add_to_cart(product)"
+                                class="bg-blue-700 text-white font-bold px-2 py-1 rounded-lg text-sm">Add to
+                                Cart</button>
                         </div>
 
                     </div>
