@@ -8,6 +8,12 @@ import UserLayout from '../components/userlayout.vue'
 
 document.title = "Cart"
 
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+const goto_checkout = () => {
+    router.push("/checkout")
+}
 
 </script>
 
@@ -44,7 +50,7 @@ document.title = "Cart"
                 </div>
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-2">
                     <span>Shipping Charge:</span>
-                    <span>5$</span>
+                    <span>{{ cartStore.shipping }} $</span>
                 </div>
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-2">
                     <span>Vat + Tax:</span>
@@ -55,7 +61,7 @@ document.title = "Cart"
                     <span>Total:</span>
                     <span>{{ cartStore.totalCost }} $</span>
                 </div>
-                <button class="w-full bg-blue-600 text-white px-5 py-2 mt-10">Checkout</button>
+                <button class="w-full bg-blue-600 text-white px-5 py-2 mt-10" @click="goto_checkout()">Checkout</button>
             </div>
         </div>
     </UserLayout>

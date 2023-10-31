@@ -6,6 +6,7 @@ const LogoutView = () => import("../views/LogoutView.vue")
 const Signup = () => import("../views/SignupView.vue")
 const ForgotPassword = () => import("../views/ForgotPassword.vue")
 const CartView = () => import("../views/CartView.vue")
+const Checkout = () => import("../views/Checkout.vue")
 
 
 const routes = [    
@@ -32,6 +33,11 @@ const routes = [
         path: "/cart",
         component: CartView,
         name: "Cart"
+    },
+    {
+        path: "/checkout",
+        component: Checkout,
+        name: "Checkout"
     },
 
 ]
