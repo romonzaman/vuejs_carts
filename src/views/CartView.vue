@@ -19,17 +19,18 @@ document.title = "Cart"
             <div class="w-2/3">
                 <div class="border m-10 p-5 bg-gray-100 flex justify-evenly items-center space-x-5"
                     v-for="(product, index) in cartStore.products" :key="index">
-                    <!-- {{ product }} -->
+                    <!-- {{ product.count }} -->
                     <div>
-                        <img :src="product.thumbnail" alt="" class="w-32 h-auto">
+                        <img :src="product.data.thumbnail" alt="" class="w-32 h-auto">
                     </div>
                     <div>
-                        <p class="text-lg font-bold">{{ product.title }}</p>
-                        <p>{{ product.price }} $</p>
+                        <p class="text-lg font-bold">{{ product.data.title }}</p>
+                        <p>{{ product.data.price }} $</p>
                         <div class="flex justify-around items-center mt-5">
-                            <button class="bg-blue-800 text-white text-md px-2">-</button>
-                            <input type="number" value="3" class="w-[50px] text-center">
-                            <button class="bg-blue-800 text-white text-md px-2">+</button>
+                            <button class="bg-blue-800 text-white text-md px-2" @click="product.count--"
+                                :disabled="product.count == 0">-</button>
+                            <input type="number" v-model="product.count" class="w-[50px] text-center">
+                            <button class="bg-blue-800 text-white text-md px-2" @click="product.count++">+</button>
                         </div>
                     </div>
 
@@ -39,7 +40,7 @@ document.title = "Cart"
                 <h2 class="text-lg">Order Summary</h2>
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-2">
                     <span>Sub Total:</span>
-                    <span>100$</span>
+                    <span>{{ cartStore.totalPrice }} $</span>
                 </div>
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-2">
                     <span>Shipping Charge:</span>
@@ -47,12 +48,12 @@ document.title = "Cart"
                 </div>
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-2">
                     <span>Vat + Tax:</span>
-                    <span>10$</span>
+                    <span>{{ cartStore.getTax }} $</span>
                 </div>
 
                 <div class="flex justify-between items-center border-b-2 border-gray-300 border-spacing-x-6 mt-10">
                     <span>Total:</span>
-                    <span>10$</span>
+                    <span>{{ cartStore.totalCost }} $</span>
                 </div>
                 <button class="w-full bg-blue-600 text-white px-5 py-2 mt-10">Checkout</button>
             </div>
